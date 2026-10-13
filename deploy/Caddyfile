@@ -24,6 +24,10 @@ kraftpatrick.dev {
 	header @hashed Cache-Control "public, max-age=31536000, immutable"
 	@static path /fonts/* /images/*
 	header @static Cache-Control "public, max-age=2592000"
+	# Pages and their data are revalidated on every visit (a cheap 304), so a deploy is picked up
+	# at once and a cached page never asks for build files an older deploy has removed.
+	@pages not path /_nuxt/* /fonts/* /images/*
+	header @pages Cache-Control "no-cache"
 
 	handle_errors {
 		@notFound expression {http.error.status_code} == 404

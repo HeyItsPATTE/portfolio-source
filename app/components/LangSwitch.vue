@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { isPlainLeftClick } from '~/utils/events'
 import { swapLocalePath } from '~/utils/locale-path'
 import { languageCookie } from '~/utils/root-redirect'
 
@@ -13,9 +14,12 @@ const routed = computed(() => switchLocalePath(target.value))
 // with a full page load, because the error page keeps its locale on client-side navigation.
 const fallback = computed(() => (routed.value ? undefined : swapLocalePath(route.path, target.value)))
 
-/** An explicit choice is what the language cookie remembers (read by the "/" redirect). */
-function remember() {
-  document.cookie = languageCookie(target.value)
+/**
+ * An explicit choice is what the language cookie remembers (read by the "/" redirect).
+ * Opening the other language in a new tab (Ctrl/Cmd/Shift-click) is not a choice for this tab.
+ */
+function remember(event: MouseEvent) {
+  if (isPlainLeftClick(event)) document.cookie = languageCookie(target.value)
 }
 </script>
 

@@ -54,9 +54,19 @@ describe('rootRedirectScript', () => {
       'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
       'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
       'LinkedInBot/1.0 (compatible; Mozilla/5.0; Apache-HttpClient +http://www.linkedin.com)',
+      'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)',
+      'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)',
+      'Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36 Chrome-Lighthouse',
     ]) {
       expect(visit({ languages: ['en-US'], userAgent }), userAgent).toBeNull()
     }
+  })
+
+  it('still redirects ordinary browsers whose user agent merely contains "bot" or "preview"', () => {
+    const cubotPhone = 'Mozilla/5.0 (Linux; Android 10; CUBOT_X30) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36'
+    const inAppBrowser = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 PreviewApp/2.0'
+    expect(visit({ languages: ['en-GB'], userAgent: cubotPhone })).toBe('/en')
+    expect(visit({ languages: ['en-US'], userAgent: inAppBrowser })).toBe('/en')
   })
 
   it('acts only on the root path and keeps query and hash', () => {

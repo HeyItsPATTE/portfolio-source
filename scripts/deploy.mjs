@@ -1,9 +1,10 @@
-// Uploads the static build (.output/public) to the VPS and swaps it in at once.
+// Uploads the static build (.output/public) to the VPS and switches the live site to it.
 // Usage: npm run deploy   (builds first). DEPLOY_HOST and DEPLOY_KEY override the defaults.
 import { spawn } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
+import { releaseName, remoteScript, sshArgs } from './deploy-lib.mjs'
 
 const host = process.env.DEPLOY_HOST ?? 'root@kraftpatrick.dev'
 const key = process.env.DEPLOY_KEY ?? join(homedir(), '.ssh', 'kraftpatrick_vps')
@@ -15,22 +16,15 @@ if (!existsSync(join(dist, 'index.html'))) {
   process.exit(1)
 }
 
-// Unpack next to the live folder, make it readable for Caddy, then swap the folders.
-const remote = [
-  'set -e',
-  `rm -rf ${site}.new ${site}.old`,
-  `mkdir -p ${site}.new`,
-  `tar --no-same-owner -xzf - -C ${site}.new`,
-  `chmod -R a+rX ${site}.new`,
-  `if [ -d ${site} ]; then mv ${site} ${site}.old; fi`,
-  `mv ${site}.new ${site}`,
-  `rm -rf ${site}.old`,
-  `echo "deployed $(find ${site} -type f | wc -l) files to ${site}"`,
-].join('; ')
-
 const tar = spawn('tar', ['-czf', '-', '-C', dist, '.'], { stdio: ['ignore', 'pipe', 'inherit'] })
-const ssh = spawn('ssh', ['-i', key, '-o', 'IdentitiesOnly=yes', '-o', 'BatchMode=yes', host, remote], {
+const ssh = spawn('ssh', [...sshArgs({ key, host }), remoteScript({ site, release: releaseName() })], {
   stdio: ['pipe', 'inherit', 'inherit'],
+})
+// If ssh fails early it closes its stdin: report that through the exit codes below instead of
+// crashing on EPIPE, and stop tar, which would otherwise block forever on the unread pipe.
+ssh.stdin.on('error', () => {})
+ssh.on('close', (code) => {
+  if (code !== 0) tar.kill()
 })
 tar.stdout.pipe(ssh.stdin)
 

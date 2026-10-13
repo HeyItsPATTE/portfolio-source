@@ -16,4 +16,5 @@ export function languageCookie(locale: Locale): string {
  *   that prefer neither;
  * - crawlers stay on the German home, so it remains the indexed x-default page.
  */
-export const rootRedirectScript = `(function(){if(location.pathname!=='/')return;if(/bot|crawl|spider|slurp|preview|lighthouse/i.test(navigator.userAgent||''))return;var m=document.cookie.match(/(?:^|; )${LANGUAGE_COOKIE}=([^;]*)/),p=m?m[1]:null;if(!p){p='en';var ls=navigator.languages||[navigator.language||''];for(var i=0;i<ls.length;i++){var l=String(ls[i]).slice(0,2).toLowerCase();if(l==='de'||l==='en'){p=l;break}}}if(p==='en')location.replace('/en'+location.search+location.hash)})()`
+// Named crawler tokens and a standalone "bot" word only: "CUBOT" phones or "PreviewApp" browsers are people.
+export const rootRedirectScript = `(function(){if(location.pathname!=='/')return;if(/(?:google|bing|duckduck|yandex|apple|linkedin|twitter|petal|semrush|ahrefs|mj12)bot|\\bbot\\b|\\bcrawler\\b|spider|slurp|facebookexternalhit|lighthouse/i.test(navigator.userAgent||''))return;var m=document.cookie.match(/(?:^|; )${LANGUAGE_COOKIE}=([^;]*)/),p=m?m[1]:null;if(!p){p='en';var ls=navigator.languages||[navigator.language||''];for(var i=0;i<ls.length;i++){var l=String(ls[i]).slice(0,2).toLowerCase();if(l==='de'||l==='en'){p=l;break}}}if(p==='en')location.replace('/en'+location.search+location.hash)})()`
