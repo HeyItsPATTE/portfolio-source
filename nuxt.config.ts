@@ -14,8 +14,9 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'dark light' },
       ],
       link: [
-        { rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        // ?v= makes browsers that cached an older icon (Chrome keeps favicons in its own store) fetch this one.
+        { rel: 'icon', href: '/favicon.ico?v=2', sizes: '16x16 32x32 48x48' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=2' },
         { rel: 'preload', href: '/fonts/Newsreader-Variable.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         { rel: 'preload', href: '/fonts/Geist-Variable.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
       ],
