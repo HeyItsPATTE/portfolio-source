@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "label": "Hauptnavigation",
+    "projects": "Projekte",
+    "about": "Über mich",
+    "contact": "Kontakt"
+  },
+  "theme": {
+    "toDay": "Tag",
+    "toNight": "Nacht",
+    "ariaToDay": "Tag: helles Design einschalten",
+    "ariaToNight": "Nacht: dunkles Design einschalten"
+  },
+  "menu": {
+    "open": "Menü",
+    "close": "Schließen"
+  },
+  "skip": "Zum Inhalt springen",
+  "footer": {
+    "copyright": "© {year} Patrick Kraft",
+    "built": "Gebaut mit Nuxt, Vue und SCSS.",
+    "legal": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "contact": {
+    "emailCta": "Schreib mir eine E-Mail",
+    "cvCta": "Lebenslauf anfragen",
+    "discord": "Discord: heyitspatte"
+  },
+  "portrait": {
+    "alt": "Patrick Kraft in dunklem Sakko und weißem Hemd, leicht lächelnd"
+  },
+  "meta": {
+    "home": {
+      "title": "Anwendungsentwickler in Umschulung",
+      "description": "Patrick Kraft, angehender Fachinformatiker für Anwendungsentwicklung aus Recklinghausen. Projekte mit C#, .NET, Vue und Unity."
+    },
+    "projects": {
+      "title": "Projekte",
+      "description": "LACNR, BerryBase, Undercrown, Survive Tonight und die BerryBit-Website: was ich gebaut habe und womit."
+    },
+    "about": {
+      "title": "Über mich",
+      "description": "Vom GMP-Reinraum zur Softwareentwicklung: Werdegang, Ausbildung und Sprachen von Patrick Kraft."
+    },
+    "impressum": {
+      "title": "Impressum",
+      "description": "Impressum von kraftpatrick.dev."
+    },
+    "datenschutz": {
+      "title": "Datenschutz",
+      "description": "Datenschutzerklärung von kraftpatrick.dev."
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Diese Seite gibt es nicht."
+    }
+  },
+  "home": {
+    "idLine": "anwendungsentwickler in umschulung · recklinghausen",
+    "heroA": "Ich baue Software mit C# und Vue und arbeite ",
+    "heroEm": "genau",
+    "heroB": " nach Vorgabe.",
+    "lead": "Ich mache eine Umschulung zum Fachinformatiker für Anwendungsentwicklung (IHK), Abschluss voraussichtlich 2028. Davor war ich zweieinhalb Jahre in der pharmazeutischen Produktion, meist im GMP-Reinraum, wo jeder Schritt nach Vorgabe läuft und dokumentiert wird.",
+    "ctaProjects": "Zu meinen Projekten",
+    "factsLabel": "Auf einen Blick",
+    "work": {
+      "eyebrow": "01 · ausgewählte projekte",
+      "title": "Ausgewählte Projekte",
+      "lead": "Was ich gebaut habe, was mein Teil war und womit.",
+      "all": "Alle Projekte →"
+    },
+    "stack": {
+      "eyebrow": "02 · stack",
+      "title": "Womit ich arbeite",
+      "lead": "Keine Skill-Balken. Nur, was ich wirklich eingesetzt habe, in Projekten oder in der Umschulung."
+    },
+    "background": {
+      "eyebrow": "03 · werdegang",
+      "title": "Vom Reinraum zum Code",
+      "lead": "Ich habe bewusst den Beruf gewechselt. Die Produktion unter GMP hat mir beigebracht, nach Vorgabe zu arbeiten, jeden Schritt zu dokumentieren und Qualität ernst zu nehmen. Das bringe ich in die Softwareentwicklung mit.",
+      "more": "Ganzer Werdegang →"
+    },
+    "contact": {
+      "eyebrow": "04 · kontakt",
+      "title": "Kontakt",
+      "lead": "Am besten erreichst du mich per E-Mail, meinen Lebenslauf schicke ich dir auf Anfrage. Du findest mich auch auf LinkedIn und GitHub."
+    }
+  },
+  "projects": {
+    "eyebrow": "projekte",
+    "title": "Projekte",
+    "lead": "Alles, was ich gebaut habe oder gerade baue: Web, Desktop und Spiele, allein und mit Freunden."
+  },
+  "about": {
+    "eyebrow": "über mich",
+    "titleA": "Vom Reinraum ",
+    "titleEm": "zum Code",
+    "lead": "Ich bin Patrick und werde gerade Anwendungsentwickler. Meistens arbeite ich an einem Spiel in Unity oder an etwas fürs Web.",
+    "p1": "Bevor ich programmiert habe, war ich zweieinhalb Jahre in der pharmazeutischen Produktion, die meiste Zeit im GMP-Reinraum bei CSL Behring in Marburg. Dort läuft jeder Schritt genau nach Vorgabe und wird dokumentiert. Das habe ich mitgenommen: Ich plane, bevor ich baue, und halte fest, was ich gemacht habe.",
+    "p2": "Seit Januar 2026 mache ich bei WBS Training eine Umschulung zum Fachinformatiker für Anwendungsentwicklung (IHK). Mein Praktikum läuft von April bis November 2027, den Abschluss mache ich voraussichtlich 2028.",
+    "p3": "In meiner Freizeit baue ich Spiele. Mit Freunden betreibe ich BerryBit, eine Hobby-Spielegruppe, aus der Survive Tonight für einen Game Jam entstanden ist, und allein arbeite ich an Undercrown, einem Multiplayer-Survivalspiel in Unity.",
+    "factsLabel": "Steckbrief",
+    "facts": {
+      "based": "wohnort",
+      "languages": "sprachen",
+      "outside": "in der freizeit",
+      "cv": "lebenslauf"
+    },
+    "values": {
+      "based": "Recklinghausen, NRW",
+      "languages": "Deutsch (Muttersprache) · Englisch (gut) · Italienisch (gut)",
+      "outside": "Spieleentwicklung mit Freunden als BerryBit",
+      "cv": "Auf Anfrage per E-Mail"
+    },
+    "work": {
+      "eyebrow": "berufserfahrung",
+      "title": "Wo ich gearbeitet habe"
+    },
+    "education": {
+      "eyebrow": "ausbildung",
+      "title": "Wo ich gelernt habe"
+    },
+    "ctaProjects": "Zu meinen Projekten"
+  },
+  "legal": {
+    "germanOnly": "Diese Seite gibt es nur auf Deutsch.",
+    "updated": "Stand: {date}"
+  },
+  "error": {
+    "title": "Diese Seite gibt es nicht",
+    "titleGeneric": "Etwas ist schiefgelaufen",
+    "text": "Vielleicht hat sich die Adresse geändert. Auf der Startseite findest du alles.",
+    "home": "Zur Startseite"
+  }
+}

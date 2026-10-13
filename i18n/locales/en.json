@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "label": "Main navigation",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "theme": {
+    "toDay": "Day",
+    "toNight": "Night",
+    "ariaToDay": "Day: switch to the light theme",
+    "ariaToNight": "Night: switch to the dark theme"
+  },
+  "menu": {
+    "open": "Menu",
+    "close": "Close"
+  },
+  "skip": "Skip to content",
+  "footer": {
+    "copyright": "© {year} Patrick Kraft",
+    "built": "Built with Nuxt, Vue and SCSS.",
+    "legal": "Legal notice",
+    "privacy": "Privacy"
+  },
+  "contact": {
+    "emailCta": "Write me an email",
+    "cvCta": "Request my CV",
+    "discord": "Discord: heyitspatte"
+  },
+  "portrait": {
+    "alt": "Patrick Kraft in a dark blazer and white shirt, smiling slightly"
+  },
+  "meta": {
+    "home": {
+      "title": "Application developer in training",
+      "description": "Patrick Kraft, application developer in training from Recklinghausen. Projects in C#, .NET, Vue and Unity."
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "LACNR, BerryBase, Undercrown, Survive Tonight and the BerryBit website: what I built and with what."
+    },
+    "about": {
+      "title": "About",
+      "description": "From a GMP cleanroom to software development: Patrick Kraft's experience, education and languages."
+    },
+    "impressum": {
+      "title": "Legal notice",
+      "description": "Legal notice for kraftpatrick.dev."
+    },
+    "datenschutz": {
+      "title": "Privacy",
+      "description": "Privacy policy for kraftpatrick.dev."
+    },
+    "notFound": {
+      "title": "Page not found",
+      "description": "This page doesn't exist."
+    }
+  },
+  "home": {
+    "idLine": "application developer in training · recklinghausen",
+    "heroA": "I build software in C# and Vue, and I work ",
+    "heroEm": "exactly",
+    "heroB": " to spec.",
+    "lead": "I'm retraining as a Fachinformatiker für Anwendungsentwicklung (IHK), finishing in 2028. Before that I spent two and a half years in pharmaceutical production, mostly in a GMP cleanroom, where every step is done to spec and documented.",
+    "ctaProjects": "See my projects",
+    "factsLabel": "At a glance",
+    "work": {
+      "eyebrow": "01 · selected work",
+      "title": "Selected work",
+      "lead": "What I built, which part was mine, and with what.",
+      "all": "All projects →"
+    },
+    "stack": {
+      "eyebrow": "02 · stack",
+      "title": "What I work with",
+      "lead": "No skill bars. Only things I've used, in my projects or in my training."
+    },
+    "background": {
+      "eyebrow": "03 · background",
+      "title": "From the cleanroom to code",
+      "lead": "I changed careers on purpose. Production under GMP taught me to work to spec, document every step and take quality seriously. I bring that to software.",
+      "more": "Full background →"
+    },
+    "contact": {
+      "eyebrow": "04 · contact",
+      "title": "Get in touch",
+      "lead": "Email is the best way to reach me, and I'll send my CV on request. I'm also on LinkedIn and GitHub."
+    }
+  },
+  "projects": {
+    "eyebrow": "projects",
+    "title": "Projects",
+    "lead": "Everything I've built or am building: web, desktop and games, alone and with friends."
+  },
+  "about": {
+    "eyebrow": "about",
+    "titleA": "From the cleanroom ",
+    "titleEm": "to code",
+    "lead": "I'm Patrick, an application developer in training. Most days I'm working on a game in Unity or on something for the web.",
+    "p1": "Before I wrote code, I spent two and a half years in pharmaceutical production, most of it in a GMP cleanroom at CSL Behring in Marburg. Every step there is done exactly to spec and documented. I kept that habit: I plan before I build, and I write down what I did.",
+    "p2": "Since January 2026 I'm retraining as a Fachinformatiker für Anwendungsentwicklung (IHK) at WBS Training. My internship runs from April to November 2027, and I expect to finish in 2028.",
+    "p3": "In my free time I build games. With friends I run BerryBit, a hobby game group that made Survive Tonight for a game jam, and on my own I'm working on Undercrown, a multiplayer survival game in Unity.",
+    "factsLabel": "Profile",
+    "facts": {
+      "based": "based in",
+      "languages": "languages",
+      "outside": "outside work",
+      "cv": "cv"
+    },
+    "values": {
+      "based": "Recklinghausen, NRW",
+      "languages": "German (native) · English (good) · Italian (good)",
+      "outside": "Game development with friends as BerryBit",
+      "cv": "On request by email"
+    },
+    "work": {
+      "eyebrow": "experience",
+      "title": "Where I worked"
+    },
+    "education": {
+      "eyebrow": "education",
+      "title": "Where I learned"
+    },
+    "ctaProjects": "See my projects"
+  },
+  "legal": {
+    "germanOnly": "This page is only available in German, which is the legally binding version.",
+    "updated": "Last updated: {date}"
+  },
+  "error": {
+    "title": "This page doesn't exist",
+    "titleGeneric": "Something went wrong",
+    "text": "The address may have changed. You'll find everything on the home page.",
+    "home": "Go to the home page"
+  }
+}

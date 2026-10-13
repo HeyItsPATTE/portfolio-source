@@ -1,0 +1,386 @@
+// Global port of the design system's components/bundle.css.
+// The kr- classes are the system's public API, so they stay global, like in the bundle.
+@use 'mixins' as *;
+
+// Inline links in running text: always underlined (lamp is under 3:1 against ink).
+.kr-link {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+  transition: text-decoration-thickness 180ms var(--ease);
+
+  &:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+// Button. min-height instead of height so long German labels can wrap on narrow phones.
+.kr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 180ms var(--ease),
+    border-color 180ms var(--ease),
+    color 180ms var(--ease);
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.kr-btn--primary {
+  background: var(--lamp);
+  color: var(--on-lamp);
+
+  &:hover:not(:disabled) {
+    background: var(--lamp-hover);
+  }
+}
+
+.kr-btn--secondary {
+  border-color: var(--line-control);
+
+  &:hover:not(:disabled) {
+    background: var(--surface-raised);
+  }
+}
+
+.kr-btn--ghost {
+  color: var(--ink-muted);
+
+  &:hover:not(:disabled) {
+    background: var(--surface);
+    color: var(--ink);
+  }
+}
+
+.kr-btn--sm {
+  min-height: 32px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+
+  // The brand book: the small button needs a bigger target on touch screens.
+  @media (pointer: coarse) {
+    min-height: 40px;
+  }
+}
+
+// Tag
+.kr-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.kr-tag--lamp {
+  background: var(--lamp-soft);
+  border-color: var(--lamp-soft);
+  color: var(--lamp);
+}
+
+// Section heading
+.kr-eyebrow {
+  margin: 0 0 var(--space-3);
+  color: var(--ink-faint);
+  @include type-label;
+}
+
+.kr-section-heading__title {
+  margin: 0;
+  color: var(--ink);
+  @include type-heading;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.kr-section-heading--page .kr-section-heading__title {
+  @include type-title;
+}
+
+.kr-section-heading__lead {
+  margin: var(--space-3) 0 0;
+  max-width: var(--width-prose);
+  color: var(--ink-muted);
+  @include type-lead;
+}
+
+// Project card
+.kr-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color 180ms var(--ease),
+    box-shadow 240ms var(--ease),
+    transform 240ms var(--ease);
+}
+
+.kr-card--link:hover {
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+.kr-card--link:focus-visible {
+  @include focus-ring;
+}
+
+.kr-card__media {
+  aspect-ratio: 16 / 10;
+  background: var(--surface-raised);
+  border-bottom: 1px solid var(--line);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.kr-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+
+.kr-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--ink-faint);
+  @include type-label;
+}
+
+.kr-card__arrow {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  transition:
+    transform 180ms var(--ease),
+    color 180ms var(--ease);
+}
+
+.kr-card--link:hover .kr-card__arrow {
+  color: var(--lamp);
+  transform: translateX(2px);
+}
+
+.kr-card__title {
+  margin: 0;
+  color: var(--ink);
+  @include type-subheading;
+}
+
+.kr-card__summary {
+  margin: 0;
+  color: var(--ink-muted);
+  @include type-small;
+}
+
+.kr-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Timeline item
+.kr-timeline-item {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--line);
+
+  @include phone {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+}
+
+.kr-timeline-item__period {
+  margin: 0;
+  padding-top: 6px;
+  color: var(--ink-faint);
+  @include type-label;
+
+  @include phone {
+    padding-top: 0;
+  }
+}
+
+.kr-timeline-item__title {
+  margin: 0;
+  color: var(--ink);
+  @include type-subheading;
+}
+
+.kr-timeline-item__place {
+  margin: 2px 0 0;
+  color: var(--ink-muted);
+  @include type-small;
+}
+
+.kr-timeline-item__text {
+  margin-top: var(--space-3);
+  max-width: var(--width-prose);
+  color: var(--ink);
+  @include type-body;
+
+  p {
+    margin: 0 0 var(--space-3);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Site header
+.kr-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--header-height);
+
+  @include phone {
+    gap: var(--space-4);
+  }
+}
+
+.kr-header__name {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 2px;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.kr-header__nav {
+  ul {
+    display: flex;
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0; // 20px line + 20px = the spec's 40px hit target
+    color: var(--ink-muted);
+    font-size: 15px;
+    line-height: 20px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: color 180ms var(--ease);
+
+    &:hover,
+    &[aria-current='page'] {
+      color: var(--ink);
+    }
+
+    &[aria-current='page']::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -2px;
+      width: 4px;
+      height: 4px;
+      margin-left: -2px;
+      border-radius: var(--radius-full);
+      background: var(--lamp);
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+
+  @include phone {
+    display: none;
+  }
+}
+
+.kr-header__end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-left: auto;
+
+  @include phone {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kr-btn,
+  .kr-card,
+  .kr-card__arrow,
+  .kr-link,
+  .kr-header__nav a {
+    transition: none;
+  }
+
+  .kr-card--link:hover,
+  .kr-card--link:hover .kr-card__arrow {
+    transform: none;
+  }
+}

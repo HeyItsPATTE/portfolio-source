@@ -1,0 +1,100 @@
+// Mixins and constants only: safe to @use from any component, emits no CSS by itself.
+
+// The design system switches the header nav and timeline layout at 640px.
+$bp-phone: 640px;
+
+@mixin phone {
+  @media (max-width: #{$bp-phone - 0.02px}) {
+    @content;
+  }
+}
+
+@mixin type-display {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  line-height: 68px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+
+  @include phone {
+    font-size: 44px;
+    line-height: 48px;
+  }
+}
+
+@mixin type-title {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  line-height: 50px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+
+  @include phone {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+@mixin type-heading {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@mixin type-subheading {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+@mixin type-lead {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
+@mixin type-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 400;
+}
+
+@mixin type-small {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@mixin type-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+@mixin type-code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@mixin page-frame {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--width-page) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}

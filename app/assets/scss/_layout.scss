@@ -1,0 +1,66 @@
+// Page-level layout shared by all pages.
+@use 'mixins' as *;
+
+.page-frame {
+  @include page-frame;
+}
+
+.page {
+  padding-top: var(--space-24);
+
+  @include phone {
+    padding-top: var(--space-12);
+  }
+}
+
+// A section: heading, then content 32px below, then the section gap.
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--section-gap);
+}
+
+.block__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+// Standalone text links keep a 40px hit target (spec §8).
+.block__more {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  min-height: 40px;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+// Three columns on desktop, two on tablets, one on phones; min() keeps 320px phones from overflowing.
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-6);
+}
+
+.timeline {
+  border-bottom: 1px solid var(--line);
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--width-prose);
+  color: var(--ink);
+  @include type-body;
+}
