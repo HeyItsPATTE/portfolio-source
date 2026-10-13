@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest run",
-    "images": "python scripts/make-images.py"
+    "images": "python scripts/make-images.py",
+    "deploy": "nuxt generate && node scripts/deploy.mjs"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",

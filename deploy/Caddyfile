@@ -1,0 +1,39 @@
+# Caddy config for kraftpatrick.dev on the VPS (copied to /etc/caddy/Caddyfile).
+# The static Nuxt build lives in /var/www/kraftpatrick.dev (npm run deploy).
+# Caddy gets and renews the TLS certificate itself; .dev domains require HTTPS.
+
+kraftpatrick.dev {
+	root * /var/www/kraftpatrick.dev
+	encode zstd gzip
+
+	# /projects serves /projects/index.html directly, without a redirect.
+	try_files {path} {path}/index.html
+	file_server
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+
+	# Nuxt's build files have content hashes in their names; fonts and images change rarely.
+	@hashed path /_nuxt/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+	@static path /fonts/* /images/*
+	header @static Cache-Control "public, max-age=2592000"
+
+	handle_errors {
+		@notFound expression {http.error.status_code} == 404
+		handle @notFound {
+			rewrite * /404.html
+			file_server
+		}
+	}
+}
+
+www.kraftpatrick.dev {
+	redir https://kraftpatrick.dev{uri} permanent
+}
