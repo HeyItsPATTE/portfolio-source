@@ -44,4 +44,18 @@ describe('public assets', () => {
     expect([buf[0], buf[1]]).toEqual([0xff, 0xd8])
     expect(jpegSize(buf)).toEqual({ width: 1200, height: 630 })
   })
+
+  it('favicon.ico carries 16, 32 and 48 px icons', () => {
+    const buf = readFileSync(join(PUBLIC, 'favicon.ico'))
+    expect(buf.readUInt16LE(2)).toBe(1) // type: icon
+    const count = buf.readUInt16LE(4)
+    const sizes = Array.from({ length: count }, (_, i) => buf[6 + i * 16] || 256)
+    expect(sizes.sort((a, b) => a - b)).toEqual([16, 32, 48])
+  })
+
+  it('apple-touch-icon.png is a 180×180 PNG', () => {
+    const buf = readFileSync(join(PUBLIC, 'apple-touch-icon.png'))
+    expect(buf.subarray(1, 4).toString()).toBe('PNG')
+    expect({ width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) }).toEqual({ width: 180, height: 180 })
+  })
 })

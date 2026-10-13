@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare",
     "test": "vitest run",
     "images": "python scripts/make-images.py",
+    "favicons": "python scripts/make-favicons.py",
     "deploy": "nuxt generate && node scripts/deploy.mjs"
   },
   "dependencies": {
