@@ -18,6 +18,11 @@ logs
 .fleet
 .idea
 
+# Local tooling and working notes (kept on this machine, never published)
+.claude/
+.superpowers/
+docs/
+
 # Local env files
 .env
 .env.*

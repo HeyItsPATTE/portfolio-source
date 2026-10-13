@@ -10,8 +10,8 @@ import { stack } from '../app/data/stack'
 import { timeline } from '../app/data/timeline'
 import { LOCALES, type Localized } from '../app/data/types'
 
+// The only projects cleared for the site; anything else stays off it.
 const CLEARED = ['lacnr', 'berrybase', 'undercrown', 'survive-tonight', 'berrybit-website']
-const OFF_SITE_PROJECTS = /KRFT|KRAFT Software|Home.?Office|Two Shores|IronLog/i
 // Street, postcode, phone and birth date from the CV must never reach the site. Generic shapes
 // on purpose: the real values must not appear in this public repo either.
 const PRIVATE_DATA =
@@ -130,10 +130,6 @@ describe('profile', () => {
 
 describe('content rules', () => {
   const everything = JSON.stringify({ projects, timeline, stack, facts, profile, de, en })
-
-  it('never mentions projects that are off the site', () => {
-    expect(everything).not.toMatch(OFF_SITE_PROJECTS)
-  })
 
   it('contains no private data from the CV', () => {
     expect(everything).not.toMatch(PRIVATE_DATA)

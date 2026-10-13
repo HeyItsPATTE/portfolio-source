@@ -6,7 +6,7 @@ The source of my personal site: who I am, what I build and how to reach me. Germ
 
 Nuxt 4, Vue 3, TypeScript, SCSS and `@nuxtjs/i18n`. Static output from `nuxt generate`, fonts self-hosted, no tracking.
 
-The look comes from my design system "Patrick Kraft": Night and Day themes, Newsreader, Geist and Geist Mono. The design spec is in `docs/superpowers/specs/2026-10-13-portfolio-redesign-design.md`.
+The look comes from my design system "Patrick Kraft": Night and Day themes, Newsreader, Geist and Geist Mono.
 
 ## Run it
 
